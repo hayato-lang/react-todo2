@@ -25,14 +25,15 @@ export const App = () => {
           </div>
         </ul>
       </div>
-      <div className="complete-area"></div>
-      <p className="title">完了したTODO</p>
-      <ul>
-        <div className="list-row">
-          <li>ううううううう</li>
-          <button>戻す</button>
-        </div>
-      </ul>
+      <div className="complete-area">
+        <p className="title">完了したTODO</p>
+        <ul>
+          <div className="list-row">
+            <li>ううううううう</li>
+            <button>戻す</button>
+          </div>
+        </ul>
+      </div>
     </>
   );
 };
