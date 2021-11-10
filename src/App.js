@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./styles.css";
+import { InputTodo } from "./components/InputTodo";
 
 export const App = () => {
   const [todoText, setTodoText] = useState("");
@@ -40,15 +41,17 @@ export const App = () => {
   };
   return (
     <>
-      <div className="input-area">
-        <input
-          placeholder="TODOを入力"
-          value={todoText}
-          onChange={onChangeText}
-        />
-        <button onClick={onClickAdd}>追加</button>
-      </div>
-
+      <InputTodo
+        todoText={todoText}
+        onChange={onChangeText}
+        onClick={onClickAdd}
+        disabled={incompleteTodos.length >= 5}
+      />
+      {incompleteTodos.length >= 5 && (
+        <p style={{ color: "red" }}>
+          追加していいTODOは5個までじゃハゲタコ！はよ消化せえハゲタコ！！
+        </p>
+      )}
       <div className="incomplete-area">
         <p className="title">未完了のTODO</p>
         <ul>
@@ -63,7 +66,6 @@ export const App = () => {
           })}
         </ul>
       </div>
-
       <div className="complete-area">
         <p className="title">完了したTODO</p>
         <ul>
